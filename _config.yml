@@ -290,3 +290,9 @@ defaults:
       comments: # true
       share: true
       related: true
+
+sidebar:  
+  - title: "Pages"  
+    nav_list:  
+      - title: "DiffColor Paper"  
+        url: /diffcolor/  
