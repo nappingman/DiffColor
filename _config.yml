@@ -1,5 +1,5 @@
 # Site settings  
-title: "Your Paper Title"  
+title: "DiffColor: Toward High Fidelity Text-Guided Image Colorization with Diffusion Models"  
 description: "A brief description of your paper"  
 url: "https://yourusername.github.io/yourrepository"  
 baseurl: ""  
