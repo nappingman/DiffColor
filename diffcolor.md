@@ -3,6 +3,7 @@ layout: single
 title: "DiffColor: Toward High Fidelity Text-Guided Image Colorization with Diffusion Models"  
 permalink: /diffcolor-paper/  
 ---  
+
 **Paper Title:** DiffColor: Toward High Fidelity Text-Guided Image Colorization with Diffusion Models  
 
 **Authors:** Jianxin Lin, Peng Xiao, Yijun Wang, Rongju Zhang, Xiangxiang Zeng  

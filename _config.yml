@@ -32,6 +32,7 @@ exclude:
 # Navigation settings  
 header_pages:  
   - diffcolor.md  
+
   
 # Google Analytics (optional)  
 google_analytics: "your-tracking-id"  
