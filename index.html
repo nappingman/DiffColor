@@ -1,4 +1,116 @@
----
-layout: home
-author_profile: true
----
+<!-- ---  
+layout: page  
+title: "DiffColor"  
+---  
+
+
+**DiffColor:** Toward High Fidelity Text-Guided Image Colorization with Diffusion Models  
+
+**Authors:** Jianxin Lin, Peng Xiao, Yijun Wang, Rongju Zhang, Xiangxiang Zeng  
+
+**Abstract:** Recent data-driven image colorization methods have enabled automatic or reference-based colorization, while still suffering from unsatisfactory and inaccurate object-level color control. To address these issues, we propose a new method called DiffColor that leverages the power of pre-trained diffusion models to recover vivid colors conditioned on a prompt text, without any additional inputs. DiffColor mainly contains two stages: colorization with generative color prior and in-context controllable colorization. Specifically, we first fine-tune a pre-trained text-to-image model to generate colorized images using a CLIP-based contrastive loss. Then we try to obtain an optimized text embedding aligning the colorized image and the text prompt, and a fine-tuned diffusion model enabling high-quality image reconstruction. Our method can produce vivid and diverse colors with a few iterations, and keep the structure and background intact while having colors well-aligned with the target language guidance. Moreover, our method allows for in-context colorization, i.e., producing different colorization results by modifying prompt texts without any fine-tuning, and can achieve object-level controllable colorization results. Extensive experiments and user studies demonstrate that DiffColor outperforms previous works in terms of visual quality, color fidelity, and diversity of colorization options.  
+
+**<center>Method</center>**
+
+<figure style="text-align: center;">  
+  <img src="assets/images/framework-v4-1.png" alt="Image description" style="transform: scale(0.5);">  
+  <figcaption>Framework of Diffcolor. DiffColor mainly contains two stages: 1) colorization with generative color prior that produces accurate and vivid
+colorization results; 2) in-context controllable colorization that edits the color of the first-stage output in a way that satisfies the target text prompt.</figcaption>  
+</figure>  
+
+**<center>Colorization</center>**
+
+
+<figure style="text-align: center;">  
+  <img src="assets/images/new_main-1.png" alt="Image description" style="transform: scale(0.5);">  
+  <figcaption>Different color prompts applied to the same gray image.</figcaption>  
+</figure>  
+
+**<center>Comparison</center>**
+
+
+<figure style="text-align: center;">  
+  <img src="assets/images/new_prompt-1.png" alt="Image description" style="transform: scale(0.5);">  
+  <figcaption>Comparison with other existing text-conditioned image colorization method.</figcaption>  
+</figure>   -->
+
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>DiffColor</title>  
+    <style>  
+        body {  
+            font-family: Arial, sans-serif;  
+            line-height: 1.6;  
+            max-width: 800px;  
+            margin: 0 auto;  
+            padding: 20px;  
+        }  
+          
+        h1 {  
+            font-size: 28px;  
+            margin-bottom: 10px;  
+            text-align: center;  
+        }  
+  
+        h2 {  
+            font-size: 24px;  
+            margin-bottom: 10px;  
+            text-align: center;  
+        }  
+          
+        figure {  
+            margin: 30px 0;  
+            text-align: center;  
+        }  
+          
+        img {  
+            max-width: 100%;  
+            height: auto;  
+        }  
+          
+        figcaption {  
+            font-size: 14px;  
+            margin-top: 10px;  
+        }  
+          
+        .authors {  
+            font-size: 16px;  
+            font-weight: bold;  
+            text-align: center;  
+            margin-bottom: 20px;  
+        }  
+    </style>  
+</head>  
+<body>  
+  
+    <h1>DiffColor: Toward High Fidelity Text-Guided Image Colorization with Diffusion Models</h1>  
+  
+    <p class="authors">Jianxin Lin, Peng Xiao, Yijun Wang, Rongju Zhang, Xiangxiang Zeng</p>  
+  
+    <h2>Method</h2>  
+  
+    <figure>  
+        <img src="assets/images/framework-v4-1.png" alt="Image description">  
+        <figcaption>Framework of Diffcolor. DiffColor mainly contains two stages: 1) colorization with generative color prior that produces accurate and vivid  
+colorization results; 2) in-context controllable colorization that edits the color of the first-stage output in a way that satisfies the target text prompt.</figcaption>  
+    </figure>  
+  
+    <h2>Colorization</h2>  
+  
+    <figure>  
+        <img src="assets/images/new_main-1.png" alt="Image description">  
+        <figcaption>Different color prompts applied to the same gray image.</figcaption>  
+    </figure>  
+  
+    <h2>Comparison</h2>  
+  
+    <figure>  
+        <img src="assets/images/new_prompt-1.png" alt="Image description">  
+        <figcaption>Comparison with other existing text-conditioned image colorization method.</figcaption>  
+    </figure>  
+  
+</body>  
+</html>  

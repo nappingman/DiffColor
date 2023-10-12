@@ -7,7 +7,7 @@ permalink: /:title/
   
 # Author information  
 author:  
-  name: "Your Name"  
+  name: "Peng Xiao"  
   email: "your.email@example.com"  
   github: "https://github.com/yourusername"  
   linkedin: "https://www.linkedin.com/in/yourusername"  
@@ -16,9 +16,8 @@ author:
 markdown: kramdown  
 theme: minima  
 plugins:  
-  - jekyll-feed  
-  - jekyll-seo-tag  
-  
+  - jekyll-include-cache  
+
 # Exclude unnecessary files  
 exclude:  
   - Gemfile  
@@ -30,8 +29,8 @@ exclude:
   - vendor/ruby/  
   
 # Navigation settings  
-header_pages:  
-  - diffcolor.md  
+# header_pages:  
+#   - diffcolor.md  
 
   
 # Google Analytics (optional)  
