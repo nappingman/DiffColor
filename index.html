@@ -4,26 +4,39 @@
     <meta charset="UTF-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
     <title>DiffColor</title>  
-    <style>  
-        body {  
-            font-family: Arial, sans-serif;  
-            line-height: 1.6;  
-            max-width: 800px;  
-            margin: 0 auto;  
-            padding: 20px;  
-        }  
+    <link rel="preconnect" href="https://fonts.gstatic.com">  
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">  
 
-        .authors {  
-          font-weight: bold;  
-          text-align: center;  
-        }  
+    <style>  
+      body {  
+        font-family: 'Inter', sans-serif; /* 更改字体为 Inter */  
+        line-height: 1.8;  
+        max-width: 800px;  
+        margin: 0 auto;  
+        padding: 20px;  
+    }  
+    
+    
       
-        h1,  
-        h2 {  
-            font-size: 28px;  
-            margin-bottom: 10px;  
-            text-align: center;  
-        }  
+    h1, h2 {  
+        font-size: 32px; /* 更改字号 */  
+        font-weight: 600; /* 更改字重 */  
+        margin-bottom: 20px; /* 更改标题与下一个元素的距离 */  
+        text-align: center;  
+    }  
+      
+    .authors {  
+        font-weight: bold;  
+        font-size: 18px; /* 更改字号 */  
+        margin-bottom: 20px; /* 更改作者与下一个元素的距离 */  
+        text-align: center;  
+    }  
+      
+    .image-caption {  
+        margin-top: 5px;  
+        font-size: 14px; /* 更改字号 */  
+    }  
+    
   
         img {  
             max-width: 100%;  
@@ -46,10 +59,6 @@
             gap: 5px;  
         }  
   
-        .image-caption {  
-            margin-top: 5px;  
-            font-size: 10px;  
-        }  
   
         .container {  
             display: flex;  
@@ -58,11 +67,12 @@
         }  
   
         .arrow {  
-            font-size: 10px;  
-            margin: 0 20px;  
-            text-align: center;  
-        }  
-  
+          font-size: 10px;  
+          margin: 0 20px;  
+          text-align: center;  
+          transform: scaleX(4); /* 水平缩放箭头 */  
+      }  
+      
         .grid {  
             display: grid;  
             grid-template-columns: repeat(3, 1fr);  
@@ -151,12 +161,12 @@
         <div class="image-pair">  
             <img src="assets/images/seaboat_gray.jpg" alt="Grayscale Image 1">  
             <img src="assets/images/seaboat_red.png" alt="Colorized Image 1.1">  
-            <p class="image-caption">A green boat under the red sky</p>  
+            <p class="image-caption">A green boat under red sky</p>  
         </div>  
         <div class="image-pair">  
             <img src="assets/images/sunflower.jpg" alt="Grayscale Image 2">  
             <img src="assets/images/sunflower_yellow.png" alt="Colorized Image 2.2">  
-            <p class="image-caption">A yellow flower under the blue sky</p>  
+            <p class="image-caption">A flower under blue sky</p>  
         </div>  
         <div class="image-pair">  
             <img src="assets/images/shark_gray.jpg" alt="Grayscale Image 2">  
@@ -206,12 +216,11 @@
 
     <h2>More Results</h2>  
     <div class="container">  
-      <p class="image-caption">A [*] dog sitting on [*] bench on [*] grassland under the [*] sky</p>  
       <div class="column">  
           <img src="assets/images/dog_gray.png" alt="Grayscale Image">  
       </div>  
       <div class="arrow">  
-          &rarr;  
+        &rarr;  
       </div>  
       <div class="column">  
           <div class="grid">  
