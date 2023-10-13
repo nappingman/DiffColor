@@ -1,39 +1,3 @@
-<!-- ---  
-layout: page  
-title: "DiffColor"  
----  
-
-
-**DiffColor:** Toward High Fidelity Text-Guided Image Colorization with Diffusion Models  
-
-**Authors:** Jianxin Lin, Peng Xiao, Yijun Wang, Rongju Zhang, Xiangxiang Zeng  
-
-**Abstract:** Recent data-driven image colorization methods have enabled automatic or reference-based colorization, while still suffering from unsatisfactory and inaccurate object-level color control. To address these issues, we propose a new method called DiffColor that leverages the power of pre-trained diffusion models to recover vivid colors conditioned on a prompt text, without any additional inputs. DiffColor mainly contains two stages: colorization with generative color prior and in-context controllable colorization. Specifically, we first fine-tune a pre-trained text-to-image model to generate colorized images using a CLIP-based contrastive loss. Then we try to obtain an optimized text embedding aligning the colorized image and the text prompt, and a fine-tuned diffusion model enabling high-quality image reconstruction. Our method can produce vivid and diverse colors with a few iterations, and keep the structure and background intact while having colors well-aligned with the target language guidance. Moreover, our method allows for in-context colorization, i.e., producing different colorization results by modifying prompt texts without any fine-tuning, and can achieve object-level controllable colorization results. Extensive experiments and user studies demonstrate that DiffColor outperforms previous works in terms of visual quality, color fidelity, and diversity of colorization options.  
-
-**<center>Method</center>**
-
-<figure style="text-align: center;">  
-  <img src="assets/images/framework-v4-1.png" alt="Image description" style="transform: scale(0.5);">  
-  <figcaption>Framework of Diffcolor. DiffColor mainly contains two stages: 1) colorization with generative color prior that produces accurate and vivid
-colorization results; 2) in-context controllable colorization that edits the color of the first-stage output in a way that satisfies the target text prompt.</figcaption>  
-</figure>  
-
-**<center>Colorization</center>**
-
-
-<figure style="text-align: center;">  
-  <img src="assets/images/new_main-1.png" alt="Image description" style="transform: scale(0.5);">  
-  <figcaption>Different color prompts applied to the same gray image.</figcaption>  
-</figure>  
-
-**<center>Comparison</center>**
-
-
-<figure style="text-align: center;">  
-  <img src="assets/images/new_prompt-1.png" alt="Image description" style="transform: scale(0.5);">  
-  <figcaption>Comparison with other existing text-conditioned image colorization method.</figcaption>  
-</figure>   -->
-
 <!DOCTYPE html>  
 <html lang="en">  
 <head>  
@@ -48,39 +12,94 @@ colorization results; 2) in-context controllable colorization that edits the col
             margin: 0 auto;  
             padding: 20px;  
         }  
-          
-        h1 {  
+
+        .authors {  
+          font-weight: bold;  
+          text-align: center;  
+        }  
+      
+        h1,  
+        h2 {  
             font-size: 28px;  
             margin-bottom: 10px;  
             text-align: center;  
         }  
   
-        h2 {  
-            font-size: 24px;  
-            margin-bottom: 10px;  
-            text-align: center;  
-        }  
-          
-        figure {  
-            margin: 30px 0;  
-            text-align: center;  
-        }  
-          
         img {  
             max-width: 100%;  
             height: auto;  
         }  
-          
-        figcaption {  
-            font-size: 14px;  
-            margin-top: 10px;  
+  
+        .image-row {  
+            display: flex;  
+            justify-content: space-between;  
+            align-items: center;  
+            flex-wrap: nowrap;  
+            gap: 5px;  
         }  
-          
-        .authors {  
-            font-size: 16px;  
-            font-weight: bold;  
+  
+        .image-pair {  
+            display: flex;  
+            flex-direction: column;  
+            align-items: center;  
+            margin-bottom: 5px;  
+            gap: 5px;  
+        }  
+  
+        .image-caption {  
+            margin-top: 5px;  
+            font-size: 10px;  
+        }  
+  
+        .container {  
+            display: flex;  
+            justify-content: center;  
+            align-items: center;  
+        }  
+  
+        .arrow {  
+            font-size: 10px;  
+            margin: 0 20px;  
             text-align: center;  
-            margin-bottom: 20px;  
+        }  
+  
+        .grid {  
+            display: grid;  
+            grid-template-columns: repeat(3, 1fr);  
+            gap: 5px;  
+            max-width: 600px;  
+        }  
+  
+        .column {  
+            display: flex;  
+            flex-direction: column;  
+            justify-content: center;  
+        }  
+  
+        .container2 {  
+            display: flex;  
+            flex-direction: column;  
+            justify-content: center;  
+            align-items: center;  
+            gap: 5px;  
+            max-width: 600px;  
+            margin: 0 auto;  
+        }  
+  
+        .column2 {  
+            display: flex;  
+            flex-direction: column;  
+            gap: 10px;  
+        }  
+  
+        .image-row2 {  
+            display: flex;  
+            align-items: flex-start;  
+            gap: 5px;  
+        }  
+  
+        .row-gap {  
+            margin-bottom: 5px;  
         }  
     </style>  
 </head>  
@@ -92,48 +111,124 @@ colorization results; 2) in-context controllable colorization that edits the col
   
     <h2>Abstract</h2>
     <p class="abstract">Recent data-driven image colorization methods have enabled automatic or reference-based colorization, while still suffering from unsatisfactory and inaccurate object-level color control. To address these issues, we propose a new method called DiffColor that leverages the power of pre-trained diffusion models to recover vivid colors conditioned on a prompt text, without any additional inputs. DiffColor mainly contains two stages: colorization with generative color prior and in-context controllable colorization. Specifically, we first fine-tune a pre-trained text-to-image model to generate colorized images using a CLIP-based contrastive loss. Then we try to obtain an optimized text embedding aligning the colorized image and the text prompt, and a fine-tuned diffusion model enabling high-quality image reconstruction. Our method can produce vivid and diverse colors with a few iterations, and keep the structure and background intact while having colors well-aligned with the target language guidance. Moreover, our method allows for in-context colorization, i.e., producing different colorization results by modifying prompt texts without any fine-tuning, and can achieve object-level controllable colorization results. Extensive experiments and user studies demonstrate that DiffColor outperforms previous works in terms of visual quality, color fidelity, and diversity of colorization options.</p>
+
     <h2>Method</h2>  
-  
+    <p>DiffColor mainly contains two stages: 
+      1) colorization with generative color prior that produces accurate and vivid colorization results; 
+      2) in-context controllable colorization that edits the color of the first-stage output in a way that satisfies the target text prompt.</p>  
     <figure>  
-        <img src="assets/images/framework-v4-1.png" alt="Image description">  
-        <figcaption>Framework of Diffcolor. DiffColor mainly contains two stages: 1) colorization with generative color prior that produces accurate and vivid  
-colorization results; 2) in-context controllable colorization that edits the color of the first-stage output in a way that satisfies the target text prompt.</figcaption>  
+      <img src="assets/images/framework-v4-1.png" alt="Image description">  
     </figure>  
+
+    <h2>Colorization without Text Prompt</h2>  
+    <div class="image-row">  
+        <div class="image-pair">  
+            <img src="assets/images/horse_gray.jpg" alt="Grayscale Image 1">  
+            <img src="assets/images/horse_brown.png" alt="Colorized Image 1.1">  
+        </div>  
+        <div class="image-pair">  
+            <img src="assets/images/cabin_gray.jpg" alt="Grayscale Image 2">  
+            <img src="assets/images/cabin_green.png" alt="Colorized Image 1.1">  
+
+        </div>  
+        <div class="image-pair">  
+            <img src="assets/images/cat_gray.jpg" alt="Grayscale Image 2">  
+            <img src="assets/images/cat_color.png" alt="Colorized Image 2.2">  
+        </div>  
+        <div class="image-pair">  
+            <img src="assets/images/horses_gray.jpg" alt="Grayscale Image 1">  
+            <img src="assets/images/horses_color.png" alt="Colorized Image 1.1">  
+        </div>  
+    </div>  
+
+    <h2>Colorization with Text Prompt</h2>  
+    <div class="image-row">  
+        <div class="image-pair">  
+            <img src="assets/images/seadog_gray.jpg" alt="Grayscale Image 1">  
+            <img src="assets/images/seadog_color.png" alt="Colorized Image 1.1">  
+            <p class="image-caption">A brown dog with red sky</p>  
+        </div>  
+        <div class="image-pair">  
+            <img src="assets/images/seaboat_gray.jpg" alt="Grayscale Image 1">  
+            <img src="assets/images/seaboat_red.png" alt="Colorized Image 1.1">  
+            <p class="image-caption">A green boat under the red sky</p>  
+        </div>  
+        <div class="image-pair">  
+            <img src="assets/images/sunflower.jpg" alt="Grayscale Image 2">  
+            <img src="assets/images/sunflower_yellow.png" alt="Colorized Image 2.2">  
+            <p class="image-caption">A yellow flower under the blue sky</p>  
+        </div>  
+        <div class="image-pair">  
+            <img src="assets/images/shark_gray.jpg" alt="Grayscale Image 2">  
+            <img src="assets/images/shark_blue.png" alt="Colorized Image 2.2">  
+            <p class="image-caption">A shark swimming in the sea</p>  
+        </div>  
+    </div>  
   
-    <h2>Colorization</h2>  
-  
-    <figure>  
-        <img src="assets/images/new_main-1.png" alt="Image description">  
-        <figcaption>Different color prompts applied to the same gray image.</figcaption>  
-    </figure>  
-  
-    <h2>Comparison</h2>  
-  
-    <figure>  
-        <img src="assets/images/new_prompt-1.png" alt="Image description">  
-        <figcaption>Comparison with other existing text-conditioned image colorization method.</figcaption>  
-    </figure>  
-    <table>  
-      <thead>  
-          <tr>  
-              <th>Grayscale Image</th>  
-              <th>Colorized Image 1</th>  
-              <th>Colorized Image 2</th>  
-          </tr>  
-      </thead>  
-      <tbody>  
-          <tr>  
-              <td><img src="assets/images/grayscale_image_1.jpg" alt="Grayscale Image 1"></td>  
-              <td><img src="assets/images/colorized_image_1_1.jpg" alt="Colorized Image 1.1"></td>  
-              <td><img src="assets/images/colorized_image_1_2.jpg" alt="Colorized Image 1.2"></td>  
-          </tr>  
-          <tr>  
-              <td><img src="assets/images/grayscale_image_2.jpg" alt="Grayscale Image 2"></td>  
-              <td><img src="assets/images/colorized_image_2_1.jpg" alt="Colorized Image 2.1"></td>  
-              <td><img src="assets/images/colorized_image_2_2.jpg" alt="Colorized Image 2.2"></td>  
-          </tr>  
-          <!-- Add more rows for additional images -->  
-      </tbody>  
-    </table>
+    <h2>Variety of colors</h2>  
+    <div class="image-row">  
+        <div class="image-pair">  
+            <img src="assets/images/teddy_gray.jpg" alt="Grayscale Image 1">  
+            <img src="assets/images/teddy_yellow.png" alt="Colorized Image 1.1">  
+            <img src="assets/images/teddy_red.png" alt="Colorized Image 1.1">  
+            <img src="assets/images/teddy_brown.png" alt="Colorized Image 1.1">  
+            <img src="assets/images/teddy_green.png" alt="Colorized Image 1.1">  
+            <p class="image-caption">A [*] teddy bear doll</p>  
+        </div>  
+        <div class="image-pair">  
+            <img src="assets/images/bus_gray.jpg" alt="Grayscale Image 2">  
+            <img src="assets/images/bus_red.png" alt="Colorized Image 1.1">  
+            <img src="assets/images/bus_green.png" alt="Colorized Image 1.1">  
+            <img src="assets/images/bus_purple.png" alt="Colorized Image 1.1">  
+            <img src="assets/images/bus_brown.png" alt="Colorized Image 1.1">  
+            <p class="image-caption">A [*] bus on the road</p>  
+
+        </div>  
+        <div class="image-pair">  
+            <img src="assets/images/booth_gray.jpg" alt="Grayscale Image 2">  
+            <img src="assets/images/booth_pink.png" alt="Colorized Image 2.2">  
+            <img src="assets/images/booth_darkgreen.png" alt="Colorized Image 2.2">  
+            <img src="assets/images/booth_dark.png" alt="Colorized Image 2.2">  
+            <img src="assets/images/booth_blue.png" alt="Colorized Image 2.2">  
+            <p class="image-caption">A [*] booth with [*] sky</p>  
+        </div>  
+
+        
+        <div class="image-pair">  
+          <img src="assets/images/cabin_gray.jpg" alt="Grayscale Image 2">  
+          <img src="assets/images/cabin_blue.png" alt="Colorized Image 2.2">  
+          <img src="assets/images/cabin_brown.png" alt="Colorized Image 2.2">  
+          <img src="assets/images/cabin_red.png" alt="Colorized Image 2.2">  
+          <img src="assets/images/cabin_green.png" alt="Colorized Image 2.2">  
+          <p class="image-caption">A [*] cabin under the sky</p>  
+      </div>  
+    </div>  
+
+    <h2>More Results</h2>  
+    <div class="container">  
+      <p class="image-caption">A [*] dog sitting on [*] bench on [*] grassland under the [*] sky</p>  
+      <div class="column">  
+          <img src="assets/images/dog_gray.png" alt="Grayscale Image">  
+      </div>  
+      <div class="arrow">  
+          &rarr;  
+      </div>  
+      <div class="column">  
+          <div class="grid">  
+              <!-- 在这里添加9张不同的上色结果图片 -->  
+              <img src="assets/images/white_dog_red_bench_yellow_grasscoco_00179.png" alt="Colorized Image 1">  
+              <img src="assets/images/white_dog_purple_sky_coco_00416.png" alt="Colorized Image 1">  
+              <img src="assets/images/dog_Red.png" alt="Colorized Image 1">  
+              <img src="assets/images/dog_yellow.png" alt="Colorized Image 1">  
+              <img src="assets/images/perfetc_00659.png" alt="Colorized Image 1">  
+              <img src="assets/images/dog_yellow2.png" alt="Colorized Image 1">  
+              <img src="assets/images/redbench_greengrass_coco_00653.png" alt="Colorized Image 1">  
+              <img src="assets/images/gray_sky_coco_00186.png" alt="Colorized Image 1">  
+              <img src="assets/images/dog_brown2.png" alt="Colorized Image 1">  
+          </div>  
+      </div>  
+  </div>  
+
 </body>  
 </html>  
+
