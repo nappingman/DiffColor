@@ -6,238 +6,513 @@
     <title>DiffColor</title>  
     <link rel="preconnect" href="https://fonts.gstatic.com">  
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">  
-
+  
     <style>  
       body {  
-        font-family: 'Inter', sans-serif; /* 更改字体为 Inter */  
+        font-family: 'Inter', sans-serif;  
         line-height: 1.8;  
         max-width: 800px;  
         margin: 0 auto;  
         padding: 20px;  
     }  
-    
-    
-      
+  
     h1, h2 {  
-        font-size: 32px; /* 更改字号 */  
-        font-weight: 600; /* 更改字重 */  
-        margin-bottom: 20px; /* 更改标题与下一个元素的距离 */  
+        font-size: 32px;  
+        font-weight: 600;  
+        margin-bottom: 20px;  
         text-align: center;  
     }  
-      
+  
     .authors {  
         font-weight: bold;  
-        font-size: 18px; /* 更改字号 */  
-        margin-bottom: 20px; /* 更改作者与下一个元素的距离 */  
+        font-size: 18px;  
+        margin-bottom: 20px;  
         text-align: center;  
+    }  
+  
+    .caption-container {  
+      position: absolute;  
+      bottom: 0;  
+      left: 0;  
+      right: 0;  
+      text-align: center;  
+      padding-bottom: 10px;  
     }  
       
     .image-caption {  
-        margin-top: 5px;  
-        font-size: 14px; /* 更改字号 */  
+      display: inline-block;  
+      margin: 0;  
+    }     
+  
+    img {  
+      max-width: 100%;  
+      height: auto;  
+    }  
+  
+    .image-row {  
+        display: flex;  
+        justify-content: space-between;  
+        align-items: center;  
+        flex-wrap: nowrap;  
+        gap: 5px;  
+    }  
+
+    .image-pair {  
+        display: flex;  
+        flex-direction: column;  
+        align-items: center;  
+        margin-bottom: 5px;  
+        gap: 5px;  
+    }  
+    .image-pair2 {  
+      position: relative;  
+      display: flex;  
+      justify-content: space-between;  
+      align-items: center;  
+      margin-bottom: 40px; /* 调整这个值，以使底部留出足够的空间容纳文本描述 */  
+    }  
+    .image-pair2-img {  
+      width: 100%;  
+      height: auto;  
     }  
     
-  
-        img {  
-            max-width: 100%;  
-            height: auto;  
-        }  
-  
-        .image-row {  
-            display: flex;  
-            justify-content: space-between;  
-            align-items: center;  
-            flex-wrap: nowrap;  
-            gap: 5px;  
-        }  
-  
-        .image-pair {  
-            display: flex;  
-            flex-direction: column;  
-            align-items: center;  
-            margin-bottom: 5px;  
-            gap: 5px;  
-        }  
-  
-  
-        .container {  
-            display: flex;  
-            justify-content: center;  
-            align-items: center;  
-        }  
-  
-        .arrow {  
-          font-size: 10px;  
-          margin: 0 20px;  
-          text-align: center;  
-          transform: scaleX(4); /* 水平缩放箭头 */  
-      }  
+    .image-pair2-with-text {  
+      width: 80%; /* 调整这个值，以使图片具有预期的大小 */  
+      margin: 0 auto 40px; /* 将左右边距设置为自动，以便在水平方向上居中对齐容器 */  
+    }  
+    
+    
+    .container {  
+        display: flex;  
+        justify-content: center;  
+        align-items: center;  
+    }  
+    .container2 {  
+      position: relative;  
+      display: inline-block;  
+    }  
+
+    .arrow {  
+      font-size: 10px;  
+      margin: 0 20px;  
+      text-align: center;  
+      transform: scaleX(4);  
+  }  
+
+    .grid {  
+        display: grid;  
+        grid-template-columns: repeat(3, 1fr);  
+        gap: 5px;  
+        max-width: 600px;  
+    }  
+
+    .column {  
+        display: flex;  
+        flex-direction: column;  
+        justify-content: center;  
+    }  
+
+    .container2 {  
+        display: flex;  
+        flex-direction: column;  
+        justify-content: center;  
+        align-items: center;  
+        gap: 5px;  
+        max-width: 600px;  
+        margin: 0 auto;  
+    }  
+
+    .column2 {  
+        display: flex;  
+        flex-direction: column;  
+        gap: 10px;  
+    }  
+
+    .image-row2 {  
+        display: flex;  
+        align-items: flex-start;  
+        gap: 5px;  
+    }  
+
+    .row-gap {  
+        margin-bottom: 5px;  
+    }  
+    .slide {  
+      flex: 0 0 33.3333%;  
+      display: none;  
+      width: 100%;  
+    }  
+    .slide3 {  
+      flex: 0 0 20%;  
+      display: none;  
+      width: 100%;  
+    }  
+    
+    .slide2 {  
+      flex: none;  
+    }  
+
+    .slider {  
+      position: relative;  
+      display: flex;  
+      flex-wrap: nowrap;  
+      overflow: hidden;  
+    }  
+
+    .slider-button {  
+      position: absolute;  
+      top: 50%;  
+      transform: translateY(-50%);  
+      background-color: rgba(0, 0, 0, 0.5);  
+      color: white;  
+      border: none;  
+      cursor: pointer;  
+    }  
+
+    .slider-button:hover {  
+      background-color: rgba(0, 0, 0, 0.7);  
+    }  
       
-        .grid {  
-            display: grid;  
-            grid-template-columns: repeat(3, 1fr);  
-            gap: 5px;  
-            max-width: 600px;  
-        }  
-  
-        .column {  
-            display: flex;  
-            flex-direction: column;  
-            justify-content: center;  
-        }  
-  
-        .container2 {  
-            display: flex;  
-            flex-direction: column;  
-            justify-content: center;  
-            align-items: center;  
-            gap: 5px;  
-            max-width: 600px;  
-            margin: 0 auto;  
-        }  
-  
-        .column2 {  
-            display: flex;  
-            flex-direction: column;  
-            gap: 10px;  
-        }  
-  
-        .image-row2 {  
-            display: flex;  
-            align-items: flex-start;  
-            gap: 5px;  
-        }  
-  
-        .row-gap {  
-            margin-bottom: 5px;  
-        }  
+    .slider-button-left {  
+      left: 0;  
+    }  
+      
+    .slider-button-right {  
+      right: 0;  
+    }  
+
     </style>  
+
 </head>  
 <body>  
   
-    <h1>DiffColor: Toward High Fidelity Text-Guided Image Colorization with Diffusion Models</h1>  
+  <h1>DiffColor: Toward High Fidelity Text-Guided Image Colorization with Diffusion Models</h1>  
+
+  <p class="authors">Jianxin Lin, Peng Xiao, Yijun Wang, Rongju Zhang, Xiangxiang Zeng</p>  
   
-    <p class="authors">Jianxin Lin, Peng Xiao, Yijun Wang, Rongju Zhang, Xiangxiang Zeng</p>  
-  
-    <h2>Abstract</h2>
-    <p class="abstract">Recent data-driven image colorization methods have enabled automatic or reference-based colorization, while still suffering from unsatisfactory and inaccurate object-level color control. To address these issues, we propose a new method called DiffColor that leverages the power of pre-trained diffusion models to recover vivid colors conditioned on a prompt text, without any additional inputs. DiffColor mainly contains two stages: colorization with generative color prior and in-context controllable colorization. Specifically, we first fine-tune a pre-trained text-to-image model to generate colorized images using a CLIP-based contrastive loss. Then we try to obtain an optimized text embedding aligning the colorized image and the text prompt, and a fine-tuned diffusion model enabling high-quality image reconstruction. Our method can produce vivid and diverse colors with a few iterations, and keep the structure and background intact while having colors well-aligned with the target language guidance. Moreover, our method allows for in-context colorization, i.e., producing different colorization results by modifying prompt texts without any fine-tuning, and can achieve object-level controllable colorization results. Extensive experiments and user studies demonstrate that DiffColor outperforms previous works in terms of visual quality, color fidelity, and diversity of colorization options.</p>
+  <h2>Abstract</h2>
+  <p class="abstract">Recent data-driven image colorization methods have enabled automatic or reference-based colorization, while still suffering from unsatisfactory and inaccurate object-level color control. To address these issues, we propose a new method called <b>DiffColor</b> that leverages the power of pre-trained diffusion models to recover vivid colors conditioned on a prompt text, without any additional inputs. DiffColor mainly contains two stages: colorization with generative color prior and in-context controllable colorization. Specifically, we first fine-tune a <b>pre-trained</b> text-to-image model to generate colorized images using a <b>CLIP-based</b> contrastive loss. Then we try to obtain an optimized text embedding aligning the colorized image and the text prompt, and a fine-tuned diffusion model enabling high-quality image reconstruction. Our method can produce <b>vivid</b> and <b>diverse</b> colors with a few iterations, and <b>keep the structure and background intact while having colors well-aligned with the target language guidance</b>. Moreover, our method allows for in-context colorization, i.e., producing different colorization results by modifying prompt texts without any fine-tuning, and can achieve <b>object-level controllable colorization</b> results. Extensive experiments and user studies demonstrate that DiffColor outperforms previous works in terms of visual quality, color fidelity, and diversity of colorization options.</p>
+  <h2>Method</h2>  
+  <p>DiffColor mainly contains two stages: <br>
+    1) colorization with generative color prior that produces accurate and vivid colorization results; <br>
+    2) in-context controllable colorization that edits the color of the first-stage output in a way that satisfies the target text prompt.<br>
+  </p>  
+  <figure>  
+    <img src="assets/images/framework-v4-1.png" alt="Image description">  
+  </figure>  
 
-    <h2>Method</h2>  
-    <p>DiffColor mainly contains two stages: 
-      1) colorization with generative color prior that produces accurate and vivid colorization results; 
-      2) in-context controllable colorization that edits the color of the first-stage output in a way that satisfies the target text prompt.</p>  
-    <figure>  
-      <img src="assets/images/framework-v4-1.png" alt="Image description">  
-    </figure>  
-
-    <h2>Colorization without Text Prompt</h2>  
-    <div class="image-row">  
-        <div class="image-pair">  
-            <img src="assets/images/horse_gray.jpg" alt="Grayscale Image 1">  
-            <img src="assets/images/horse_brown.png" alt="Colorized Image 1.1">  
+  <h2>Colorization without Text Prompt</h2> 
+  <div class="container2"> 
+   <div class="slider slider3" id="slider3"> 
+    <!-- 在这里添加每对灰度图和彩色图，每对图片都包含在一个 slide 容器内 --> 
+    <div class="slide slide2"> 
+     <div class="image-pair2"> 
+      <img src="assets/images/horse_gray.jpg" alt="Grayscale Image 1"> 
+      <img src="assets/images/horse_brown.png" alt="Colorized Image 1.1"> 
+     </div> 
+    </div> 
+    <div class="slide slide2"> 
+     <div class="image-pair2"> 
+       <img src="assets/images/cabin_gray.jpg" alt="Grayscale Image 2"> 
+       <img src="assets/images/cabin_green.png" alt="Colorized Image 1.1"> 
+     </div> 
+    </div> 
+    <div class="slide slide2"> 
+     <div class="image-pair2"> 
+      <img src="assets/images/cat_gray.jpg" alt="Grayscale Image 2"> 
+      <img src="assets/images/cat_color.png" alt="Colorized Image 2.2"> 
+     </div> 
+    </div> 
+    <div class="slide slide2"> 
+     <div class="image-pair2"> 
+      <img src="assets/images/horses_gray.jpg" alt="Grayscale Image 1"> 
+      <img src="assets/images/horses_color.png" alt="Colorized Image 1.1"> 
+     </div> 
+    </div> 
+   </div> 
+   <button id="prev3" class="slider-button slider-button-left">&#10094;</button> 
+   <button id="next3" class="slider-button slider-button-right">&#10095;</button> 
+  </div>
+ 
+  <h2>Colorization with Text Prompt</h2>  
+  <div class="container2">  
+    <div class="slider slider2" id="slider2">  
+      <!-- 在这里添加每对灰度图和彩色图，每对图片都包含在一个 slide 容器内 -->  
+      <div class="slide slide2">  
+        <div class="image-pair2">  
+          <img class="image-pair2-img" src="assets/images/seadog_gray.jpg" alt="Grayscale Image 1">  
+          <img class="image-pair2-img" src="assets/images/seadog_color.png" alt="Colorized Image 1.1">  
         </div>  
-        <div class="image-pair">  
-            <img src="assets/images/cabin_gray.jpg" alt="Grayscale Image 2">  
-            <img src="assets/images/cabin_green.png" alt="Colorized Image 1.1">  
-
+        <div class="caption-container">  
+          <p class="image-caption">A <span style="color: brown;">brown</span> dog with red sky</p>  
         </div>  
-        <div class="image-pair">  
-            <img src="assets/images/cat_gray.jpg" alt="Grayscale Image 2">  
-            <img src="assets/images/cat_color.png" alt="Colorized Image 2.2">  
+      </div>  
+      <div class="slide slide2">  
+        <div class="image-pair2">  
+          <img class="image-pair2-img" src="assets/images/seaboat_gray.jpg" alt="Grayscale Image 1">  
+          <img class="image-pair2-img" src="assets/images/seaboat_red.png" alt="Colorized Image 1.1">  
         </div>  
-        <div class="image-pair">  
-            <img src="assets/images/horses_gray.jpg" alt="Grayscale Image 1">  
-            <img src="assets/images/horses_color.png" alt="Colorized Image 1.1">  
+        <div class="caption-container">   
+          <p class="image-caption">A <span style="color: rgb(10, 218, 10);">green</span> boat under <span style="color: rgb(202, 43, 43)">blue</span> sky</p>  
         </div>  
+      </div>  
+      <div class="slide slide2">  
+        <div class="image-pair2">  
+          <img class="image-pair2-img" src="assets/images/sunflower.jpg" alt="Grayscale Image 2">  
+          <img class="image-pair2-img" src="assets/images/sunflower_yellow.png" alt="Colorized Image 2.2">  
+        </div>  
+        <div class="caption-container">   
+          <p class="image-caption">A <span style="color: rgb(242, 242, 35);">yellow</span> flower under <span style="color: rgb(25, 159, 242);">blue</span> sky</p>  
+        </div>  
+      </div>  
+      <div class="slide slide2">  
+        <div class="image-pair2">  
+          <img class="image-pair2-img" src="assets/images/shark_gray.jpg" alt="Grayscale Image 2">  
+          <img class="image-pair2-img" src="assets/images/shark_blue.png" alt="Colorized Image 2.2">  
+        </div>  
+        <div class="caption-container">   
+          <p class="image-caption">A shark swimming in the <span style="color: rgb(25, 159, 242);">blue</span> sea</p>  
+        </div>  
+      </div>  
     </div>  
+    <button id="prev2" class="slider-button slider-button-left">&#10094;</button>  
+    <button id="next2" class="slider-button slider-button-right">&#10095;</button>  
+  </div>
 
-    <h2>Colorization with Text Prompt</h2>  
-    <div class="image-row">  
-        <div class="image-pair">  
-            <img src="assets/images/seadog_gray.jpg" alt="Grayscale Image 1">  
-            <img src="assets/images/seadog_color.png" alt="Colorized Image 1.1">  
-            <p class="image-caption">A brown dog with red sky</p>  
+  <h2>Variety of colors</h2>  
+  <div class="container2">  
+    <div class="slider slider4" id="slider4">  
+      <!-- 在这里添加每对灰度图和彩色图，每对图片都包含在一个 slide 容器内 -->  
+      <div class="slide slide3">  
+        <div class="image-pair2">  
+          <img src="assets/images/teddy_gray.jpg" alt="Grayscale Image 1">  
+          <img src="assets/images/teddy_yellow.png" alt="Colorized Image 1.1">  
+          <img src="assets/images/teddy_red.png" alt="Colorized Image 1.1">  
+          <img src="assets/images/teddy_brown.png" alt="Colorized Image 1.1">  
+          <img src="assets/images/teddy_green.png" alt="Colorized Image 1.1">  
         </div>  
-        <div class="image-pair">  
-            <img src="assets/images/seaboat_gray.jpg" alt="Grayscale Image 1">  
-            <img src="assets/images/seaboat_red.png" alt="Colorized Image 1.1">  
-            <p class="image-caption">A green boat under red sky</p>  
+        <div class="caption-container">  
+          <p class="image-caption">A <b>[*]</b> teddy bear doll</p>  
         </div>  
-        <div class="image-pair">  
-            <img src="assets/images/sunflower.jpg" alt="Grayscale Image 2">  
-            <img src="assets/images/sunflower_yellow.png" alt="Colorized Image 2.2">  
-            <p class="image-caption">A flower under blue sky</p>  
+      </div>  
+      <div class="slide slide3">  
+        <div class="image-pair2">  
+          <img src="assets/images/bus_gray.jpg" alt="Grayscale Image 2">  
+          <img src="assets/images/bus_red.png" alt="Colorized Image 1.1">  
+          <img src="assets/images/bus_green.png" alt="Colorized Image 1.1">  
+          <img src="assets/images/bus_purple.png" alt="Colorized Image 1.1">  
+          <img src="assets/images/bus_brown.png" alt="Colorized Image 1.1"> 
         </div>  
-        <div class="image-pair">  
-            <img src="assets/images/shark_gray.jpg" alt="Grayscale Image 2">  
-            <img src="assets/images/shark_blue.png" alt="Colorized Image 2.2">  
-            <p class="image-caption">A shark swimming in the sea</p>  
+        <div class="caption-container">  
+          <p class="image-caption">A <b>[*]</b> bus on the road</p>  
         </div>  
-    </div>  
-  
-    <h2>Variety of colors</h2>  
-    <div class="image-row">  
-        <div class="image-pair">  
-            <img src="assets/images/teddy_gray.jpg" alt="Grayscale Image 1">  
-            <img src="assets/images/teddy_yellow.png" alt="Colorized Image 1.1">  
-            <img src="assets/images/teddy_red.png" alt="Colorized Image 1.1">  
-            <img src="assets/images/teddy_brown.png" alt="Colorized Image 1.1">  
-            <img src="assets/images/teddy_green.png" alt="Colorized Image 1.1">  
-            <p class="image-caption">A [*] teddy bear doll</p>  
+      </div>  
+      <div class="slide slide3">  
+        <div class="image-pair2">  
+          <img src="assets/images/booth_gray.jpg" alt="Grayscale Image 2">  
+          <img src="assets/images/booth_pink.png" alt="Colorized Image 2.2">  
+          <img src="assets/images/booth_darkgreen.png" alt="Colorized Image 2.2">  
+          <img src="assets/images/booth_dark.png" alt="Colorized Image 2.2">  
+          <img src="assets/images/booth_blue.png" alt="Colorized Image 2.2">  
         </div>  
-        <div class="image-pair">  
-            <img src="assets/images/bus_gray.jpg" alt="Grayscale Image 2">  
-            <img src="assets/images/bus_red.png" alt="Colorized Image 1.1">  
-            <img src="assets/images/bus_green.png" alt="Colorized Image 1.1">  
-            <img src="assets/images/bus_purple.png" alt="Colorized Image 1.1">  
-            <img src="assets/images/bus_brown.png" alt="Colorized Image 1.1">  
-            <p class="image-caption">A [*] bus on the road</p>  
-
+        <div class="caption-container">  
+          <p class="image-caption">A <b>[*]</b> booth with <b>[*]</b> sky</p>  
         </div>  
-        <div class="image-pair">  
-            <img src="assets/images/booth_gray.jpg" alt="Grayscale Image 2">  
-            <img src="assets/images/booth_pink.png" alt="Colorized Image 2.2">  
-            <img src="assets/images/booth_darkgreen.png" alt="Colorized Image 2.2">  
-            <img src="assets/images/booth_dark.png" alt="Colorized Image 2.2">  
-            <img src="assets/images/booth_blue.png" alt="Colorized Image 2.2">  
-            <p class="image-caption">A [*] booth with [*] sky</p>  
-        </div>  
-
-        
-        <div class="image-pair">  
+      </div>  
+      <div class="slide slide3">  
+        <div class="image-pair2">  
           <img src="assets/images/cabin_gray.jpg" alt="Grayscale Image 2">  
           <img src="assets/images/cabin_blue.png" alt="Colorized Image 2.2">  
           <img src="assets/images/cabin_brown.png" alt="Colorized Image 2.2">  
           <img src="assets/images/cabin_red.png" alt="Colorized Image 2.2">  
           <img src="assets/images/cabin_green.png" alt="Colorized Image 2.2">  
-          <p class="image-caption">A [*] cabin under the sky</p>  
+        </div>  
+        <div class="caption-container">  
+          <p class="image-caption">A <b>[*]</b> cabin under the sky</p>  
+        </div>  
       </div>  
     </div>  
+    <button id="prev4" class="slider-button slider-button-left">&#10094;</button>  
+    <button id="next4" class="slider-button slider-button-right">&#10095;</button>  
+  </div>
 
-    <h2>More Results</h2>  
+
+  <h2>More Results</h2>  
     <div class="container">  
       <div class="column">  
-          <img src="assets/images/dog_gray.png" alt="Grayscale Image">  
+        <img src="assets/images/dog_gray.png" alt="Grayscale Image">  
       </div>  
       <div class="arrow">  
         &rarr;  
       </div>  
-      <div class="column">  
-          <div class="grid">  
-              <!-- 在这里添加9张不同的上色结果图片 -->  
-              <img src="assets/images/white_dog_red_bench_yellow_grasscoco_00179.png" alt="Colorized Image 1">  
-              <img src="assets/images/white_dog_purple_sky_coco_00416.png" alt="Colorized Image 1">  
-              <img src="assets/images/dog_Red.png" alt="Colorized Image 1">  
-              <img src="assets/images/dog_yellow.png" alt="Colorized Image 1">  
-              <img src="assets/images/perfetc_00659.png" alt="Colorized Image 1">  
-              <img src="assets/images/dog_yellow2.png" alt="Colorized Image 1">  
-              <img src="assets/images/redbench_greengrass_coco_00653.png" alt="Colorized Image 1">  
-              <img src="assets/images/gray_sky_coco_00186.png" alt="Colorized Image 1">  
-              <img src="assets/images/dog_brown2.png" alt="Colorized Image 1">  
+      <div class="column" style="position: relative;">  
+        <div class="slider" id="slider">  
+          <!-- 在这里添加9张不同的上色结果图片，每张图片都包含在一个 slide 容器内 -->  
+          <div class="slide">  
+            <img src="assets/images/coco_00074.png" alt="Colorized Image 1">  
           </div>  
+          <div class="slide">  
+            <img src="assets/images/dark_redbench_coco_00667.png" alt="Colorized Image 1">  
+          </div>  
+          <div class="slide">  
+            <img src="assets/images/good_start_coco_00195.png" alt="Colorized Image 1">  
+          </div>  
+          <div class="slide">  
+            <img src="assets/images/white_dog_purple_sky_coco_00416.png" alt="Colorized Image 1">  
+          </div>  
+          <div class="slide">  
+            <img src="assets/images/yellow_dog_coco_00493.png" alt="Colorized Image 1">  
+          </div>  
+          <div class="slide">  
+            <img src="assets/images/Y_R_R_newdog_coco_00659.png" alt="Colorized Image 1">  
+          </div>  
+          <div class="slide">  
+            <img src="assets/images/redbench_greengrass_coco_00653.png" alt="Colorized Image 1">  
+          </div>  
+          <div class="slide">  
+            <img src="assets/images/gray_sky_coco_00186.png" alt="Colorized Image 1">  
+          </div>  
+          <div class="slide">  
+            <img src="assets/images/red_dog_coco_00386.png" alt="Colorized Image 1">  
+          </div>  
+          <!-- 继续添加剩余的图片 -->  
+        </div>  
+        <button id="prev" class="slider-button slider-button-left">&#10094;</button>  
+        <button id="next" class="slider-button slider-button-right">&#10095;</button>  
       </div>  
-  </div>  
-
+    </div>  
+    
+  
 </body>  
+<script>  
+  const slider = document.getElementById("slider");  
+  const slides = slider.getElementsByClassName("slide");  
+  let currentSlide = 0;  
+  
+  // 显示前 3 张图片  
+  for (let i = 0; i < 3; i++) {  
+    slides[i].style.display = "block";  
+  }  
+  
+  // 绑定翻页按钮事件  
+  document.getElementById("prev").onclick = function () {  
+    shiftSlides(-3);  
+  };  
+  document.getElementById("next").onclick = function () {  
+    shiftSlides(3);  
+  };  
+  
+  function shiftSlides(direction) {  
+    const totalSlides = slides.length;  
+    const slidesToShow = 3;  
+  
+    // 隐藏当前显示的图片  
+    for (let i = currentSlide; i < currentSlide + slidesToShow; i++) {  
+      slides[i].style.display = "none";  
+    }  
+  
+    // 更新 currentSlide  
+    currentSlide += direction;  
+    currentSlide = Math.max(0, Math.min(currentSlide, totalSlides - slidesToShow));  
+  
+    // 显示新的图片  
+    for (let i = currentSlide; i < currentSlide + slidesToShow; i++) {  
+      slides[i].style.display = "block";  
+    }  
+  }  
+
+    
+    // 新的滑动窗口代码  
+    const slider2 = document.getElementById("slider2");  
+    const slides2 = slider2.getElementsByClassName("slide");  
+    let currentSlide2 = 0;  
+    
+    // 显示第一对图片  
+    slides2[currentSlide2].style.display = "block";  
+    
+    // 绑定翻页按钮事件  
+    document.getElementById("prev2").onclick = function () {  
+      shiftSlides2(-1);  
+    };  
+    document.getElementById("next2").onclick = function () {  
+      shiftSlides2(1);  
+    };  
+    
+    function shiftSlides2(direction) {  
+      const totalSlides = slides2.length;  
+    
+      // 隐藏当前显示的图片对  
+      slides2[currentSlide2].style.display = "none";  
+    
+      // 更新 currentSlide2  
+      currentSlide2 += direction;  
+      currentSlide2 = Math.max(0, Math.min(currentSlide2, totalSlides - 1));  
+    
+      // 显示新的图片对  
+      slides2[currentSlide2].style.display = "block";  
+    }  
+
+    // 新添加的slider  
+    const slider3 = document.getElementById("slider3");  
+    const slides3 = slider3.getElementsByClassName("slide");  
+    let currentSlide3 = 0;  
+      
+    // 显示第一对图片  
+    slides3[currentSlide3].style.display = "block";  
+      
+    // 绑定翻页按钮事件  
+    document.getElementById("prev3").onclick = function () {  
+      shiftSlides3(-1);  
+    };  
+    document.getElementById("next3").onclick = function () {  
+      shiftSlides3(1);  
+    };  
+      
+    function shiftSlides3(direction) {  
+      const totalSlides = slides3.length;  
+      
+      // 隐藏当前显示的图片对  
+      slides3[currentSlide3].style.display = "none";  
+      
+      // 更新 currentSlide3  
+      currentSlide3 += direction;  
+      currentSlide3 = Math.max(0, Math.min(currentSlide3, totalSlides - 1));  
+      
+      // 显示新的图片对  
+      slides3[currentSlide3].style.display = "block";  
+    }  
+
+
+    // 新添加的slider  
+    const slider4 = document.getElementById("slider4");  
+    const slides4 = slider4.getElementsByClassName("slide");  
+    let currentSlide4 = 0;  
+      
+    // 显示第一对图片  
+    slides4[currentSlide4].style.display = "block";  
+      
+    // 绑定翻页按钮事件  
+    document.getElementById("prev4").onclick = function () {  
+      shiftSlides4(-1);  
+    };  
+    document.getElementById("next4").onclick = function () {  
+      shiftSlides4(1);  
+    };  
+      
+    function shiftSlides4(direction) {  
+      const totalSlides = slides4.length;  
+      
+      // 隐藏当前显示的图片对  
+      slides4[currentSlide4].style.display = "none";  
+      
+      // 更新 currentSlide3  
+      currentSlide4 += direction;  
+      currentSlide4 = Math.max(0, Math.min(currentSlide4, totalSlides - 1));  
+      
+      // 显示新的图片对  
+      slides4[currentSlide4].style.display = "block";  
+    }  
+</script>  
+
 </html>  
 
