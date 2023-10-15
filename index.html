@@ -1,6 +1,5 @@
 <!DOCTYPE html>  
 <html lang="en">  
-<svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6z"></path></svg>  
 
 <head>  
     <meta charset="UTF-8">  
@@ -31,6 +30,14 @@
         margin-bottom: 20px;  
         text-align: center;  
     }  
+    .affiliation,  
+    .arxiv-link {  
+      font-weight: bold;  
+      font-size: 18px;  
+      margin-bottom: 20px;  
+      text-align: center;  
+    }  
+    
   
     .caption-container {  
       position: absolute;  
@@ -70,7 +77,7 @@
       display: flex;  
       justify-content: space-between;  
       align-items: center;  
-      margin-bottom: 40px; /* 调整这个值，以使底部留出足够的空间容纳文本描述 */  
+      margin-bottom: 40px; 
     }  
     .image-pair2-img {  
       width: 100%;  
@@ -78,8 +85,8 @@
     }  
     
     .image-pair2-with-text {  
-      width: 80%; /* 调整这个值，以使图片具有预期的大小 */  
-      margin: 0 auto 40px; /* 将左右边距设置为自动，以便在水平方向上居中对齐容器 */  
+      width: 80%; 
+      margin: 0 auto 40px; 
     }  
     
     
@@ -154,12 +161,12 @@
     }  
       
     .caption-container {  
-      min-height: 30px; /* 根据需要调整此值 */  
+      min-height: 30px; 
       text-align: center;  
       background-color: rgba(255, 255, 255, 0.7);  
-      padding: 4px 8px; /* 减少上下 padding 以降低背景高度 */  
-      margin-top: 10px; /* 根据需要调整此值 */  
-      line-height: 1.2; /* 减少行高以降低背景高度 */  
+      padding: 4px 8px; 
+      margin-top: 10px; 
+      line-height: 1.2;  
     }  
     
     .slide3 {  
@@ -201,17 +208,25 @@
       right: 0;  
     }  
 
-    </style>  
-
+  </style>
 </head>  
 <body>  
-  
   <h1>DiffColor: Toward High Fidelity Text-Guided Image Colorization with Diffusion Models</h1>  
 
-  <p class="authors">Jianxin Lin, Peng Xiao, Yijun Wang, Rongju Zhang, Xiangxiang Zeng</p>  
+  <p class="authors">Jianxin Lin, Peng Xiao, Yijun Wang, Rongju Zhang, Xiangxiang Zeng</p> 
+
+    
+  <p class="affiliation">Hunan University</p>  
+    
+  <p class="arxiv-link">  
+    <a href="https://arxiv.org/abs/2308.01655" target="_blank">  
+      <img src="assets/images/OIP.jpg" alt="View on arXiv" width="60">  
+    </a>  
+  </p>  
+  
   
   <h2>Abstract</h2>
-  <p class="abstract">Recent data-driven image colorization methods have enabled automatic or reference-based colorization, while still suffering from unsatisfactory and inaccurate object-level color control. To address these issues, we propose a new method called <b>DiffColor</b> that leverages the power of pre-trained diffusion models to recover vivid colors conditioned on a prompt text, without any additional inputs. DiffColor mainly contains two stages: colorization with generative color prior and in-context controllable colorization. Specifically, we first fine-tune a <b>pre-trained</b> text-to-image model to generate colorized images using a <b>CLIP-based</b> contrastive loss. Then we try to obtain an optimized text embedding aligning the colorized image and the text prompt, and a fine-tuned diffusion model enabling high-quality image reconstruction. Our method can produce <b>vivid</b> and <b>diverse</b> colors with a few iterations, and <b>keep the structure and background intact while having colors well-aligned with the target language guidance</b>. Moreover, our method allows for in-context colorization, i.e., producing different colorization results by modifying prompt texts without any fine-tuning, and can achieve <b>object-level controllable colorization</b> results. Extensive experiments and user studies demonstrate that DiffColor outperforms previous works in terms of visual quality, color fidelity, and diversity of colorization options.</p>
+  <p class="abstract">Recent data-driven image colorization methods have enabled automatic or reference-based colorization, while still suffering from unsatisfactory and inaccurate object-level color control. To address these issues, we propose a new method called <b>DiffColor</b> that leverages the power of pre-trained diffusion models to recover vivid colors conditioned on a prompt text, without any additional inputs. DiffColor mainly contains two stages: colorization with generative color prior and in-context controllable colorization. Specifically, we first fine-tune a <b>pre-trained</b> text-to-image model to generate colorized images using a <b>CLIP-based</b> contrastive loss. Then we try to obtain an optimized text embedding aligning the colorized image and the text prompt, and a fine-tuned diffusion model enabling high-quality image reconstruction. Our method can produce <b>vivid</b> and <b>diverse</b> colors with a few iterations, and <b>keep the structure and background intact while having colors well-aligned with the target language guidance</b>. Moreover, our method allows for in-context colorization, i.e., <i>producing different colorization results by modifying prompt texts without any fine-tuning, and can achieve <b>object-level controllable colorization</b> results</i>. Extensive experiments and user studies demonstrate that DiffColor outperforms previous works in terms of visual quality, color fidelity, and diversity of colorization options.</p>
   <h2>Method</h2>  
   <p>DiffColor mainly contains two stages: <br>
     1) colorization with generative color prior that produces accurate and vivid colorization results; <br>
@@ -224,7 +239,6 @@
   <h2>Colorization without Text Prompt</h2> 
   <div class="container2"> 
    <div class="slider slider3" id="slider3"> 
-    <!-- 在这里添加每对灰度图和彩色图，每对图片都包含在一个 slide 容器内 --> 
     <div class="slide slide2"> 
      <div class="image-pair2"> 
       <img src="assets/images/horse_gray.jpg" alt="Grayscale Image 1"> 
@@ -257,7 +271,6 @@
   <h2>Colorization with Text Prompt</h2>  
   <div class="container2">  
     <div class="slider slider2" id="slider2">  
-      <!-- 在这里添加每对灰度图和彩色图，每对图片都包含在一个 slide 容器内 -->  
       <div class="slide slide2">  
         <div class="image-pair2">  
           <img class="image-pair2-img" src="assets/images/seadog_gray.jpg" alt="Grayscale Image 1">  
@@ -309,7 +322,6 @@
     </div>  
     <div class="column" style="position: relative;">  
       <div class="slider" id="slider5">  
-        <!-- 在这里添加9张不同的上色结果图片，每张图片都包含在一个 slide 容器内 -->  
         <div class="slide slide3">  
           <img src="assets/images/teddy_yellow.png" alt="Colorized Image 1">  
           <div class="caption-container">  
@@ -349,7 +361,6 @@
     </div>  
     <div class="column" style="position: relative;">  
       <div class="slider" id="slider6">  
-        <!-- 在这里添加9张不同的上色结果图片，每张图片都包含在一个 slide 容器内 -->  
         <div class="slide slide3">  
           <img src="assets/images/bus_red.png" alt="Colorized Image 1">  
           <div class="caption-container">  
@@ -389,7 +400,6 @@
     </div>  
     <div class="column" style="position: relative;">  
       <div class="slider" id="slider7">  
-        <!-- 在这里添加9张不同的上色结果图片，每张图片都包含在一个 slide 容器内 -->  
         <div class="slide slide3">  
           <img src="assets/images/booth_pink.png" alt="Colorized Image 1">  
           <div class="caption-container">  
@@ -429,7 +439,6 @@
     </div>  
     <div class="column" style="position: relative;">  
       <div class="slider" id="slider8">  
-        <!-- 在这里添加9张不同的上色结果图片，每张图片都包含在一个 slide 容器内 -->  
         <div class="slide slide3">  
           <img src="assets/images/cabin_blue.png" alt="Colorized Image 1">  
           <div class="caption-container">  
@@ -470,7 +479,6 @@
       </div>  
       <div class="column" style="position: relative;">  
         <div class="slider" id="slider">  
-          <!-- 在这里添加9张不同的上色结果图片，每张图片都包含在一个 slide 容器内 -->  
           <div class="slide">  
             <img src="assets/images/coco_00074.png" alt="Colorized Image 1">  
           </div>  
@@ -498,7 +506,6 @@
           <div class="slide">  
             <img src="assets/images/red_dog_coco_00386.png" alt="Colorized Image 1">  
           </div>  
-          <!-- 继续添加剩余的图片 -->  
         </div>  
         <button id="prev" class="slider-button slider-button-left">&#10094;</button>  
         <button id="next" class="slider-button slider-button-right">&#10095;</button>  
