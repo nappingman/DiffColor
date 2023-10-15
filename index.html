@@ -1,5 +1,7 @@
 <!DOCTYPE html>  
 <html lang="en">  
+<svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6z"></path></svg>  
+
 <head>  
     <meta charset="UTF-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
@@ -40,7 +42,6 @@
     }  
       
     .image-caption {  
-      display: inline-block;  
       margin: 0;  
     }     
   
@@ -92,12 +93,14 @@
       display: inline-block;  
     }  
 
+
     .arrow {  
-      font-size: 10px;  
+      width: 24px;  
+      height: 24px;  
       margin: 0 20px;  
       text-align: center;  
-      transform: scaleX(4);  
-  }  
+    }  
+    
 
     .grid {  
         display: grid;  
@@ -142,8 +145,25 @@
       display: none;  
       width: 100%;  
     }  
+    .slide {  
+      display: flex;  
+      flex-direction: column;  
+      align-items: center;  
+      width: 100%;  
+      display: none;  
+    }  
+      
+    .caption-container {  
+      min-height: 30px; /* 根据需要调整此值 */  
+      text-align: center;  
+      background-color: rgba(255, 255, 255, 0.7);  
+      padding: 4px 8px; /* 减少上下 padding 以降低背景高度 */  
+      margin-top: 10px; /* 根据需要调整此值 */  
+      line-height: 1.2; /* 减少行高以降低背景高度 */  
+    }  
+    
     .slide3 {  
-      flex: 0 0 20%;  
+      flex: 0 0 100%;  
       display: none;  
       width: 100%;  
     }  
@@ -244,7 +264,7 @@
           <img class="image-pair2-img" src="assets/images/seadog_color.png" alt="Colorized Image 1.1">  
         </div>  
         <div class="caption-container">  
-          <p class="image-caption">A <span style="color: brown;">brown</span> dog with red sky</p>  
+          <p class="image-caption">A <span style="color: brown;">brown</span> dog with <span style="color: rgb(202, 43, 43)">red</span> sky</p>  
         </div>  
       </div>  
       <div class="slide slide2">  
@@ -253,7 +273,7 @@
           <img class="image-pair2-img" src="assets/images/seaboat_red.png" alt="Colorized Image 1.1">  
         </div>  
         <div class="caption-container">   
-          <p class="image-caption">A <span style="color: rgb(10, 218, 10);">green</span> boat under <span style="color: rgb(202, 43, 43)">blue</span> sky</p>  
+          <p class="image-caption">A <span style="color: rgb(10, 218, 10);">green</span> boat under <span style="color: rgb(202, 43, 43)">red</span> sky</p>  
         </div>  
       </div>  
       <div class="slide slide2">  
@@ -280,62 +300,165 @@
   </div>
 
   <h2>Variety of colors</h2>  
-  <div class="container2">  
-    <div class="slider slider4" id="slider4">  
-      <!-- 在这里添加每对灰度图和彩色图，每对图片都包含在一个 slide 容器内 -->  
-      <div class="slide slide3">  
-        <div class="image-pair2">  
-          <img src="assets/images/teddy_gray.jpg" alt="Grayscale Image 1">  
-          <img src="assets/images/teddy_yellow.png" alt="Colorized Image 1.1">  
-          <img src="assets/images/teddy_red.png" alt="Colorized Image 1.1">  
-          <img src="assets/images/teddy_brown.png" alt="Colorized Image 1.1">  
-          <img src="assets/images/teddy_green.png" alt="Colorized Image 1.1">  
-        </div>  
-        <div class="caption-container">  
-          <p class="image-caption">A <b>[*]</b> teddy bear doll</p>  
-        </div>  
-      </div>  
-      <div class="slide slide3">  
-        <div class="image-pair2">  
-          <img src="assets/images/bus_gray.jpg" alt="Grayscale Image 2">  
-          <img src="assets/images/bus_red.png" alt="Colorized Image 1.1">  
-          <img src="assets/images/bus_green.png" alt="Colorized Image 1.1">  
-          <img src="assets/images/bus_purple.png" alt="Colorized Image 1.1">  
-          <img src="assets/images/bus_brown.png" alt="Colorized Image 1.1"> 
-        </div>  
-        <div class="caption-container">  
-          <p class="image-caption">A <b>[*]</b> bus on the road</p>  
-        </div>  
-      </div>  
-      <div class="slide slide3">  
-        <div class="image-pair2">  
-          <img src="assets/images/booth_gray.jpg" alt="Grayscale Image 2">  
-          <img src="assets/images/booth_pink.png" alt="Colorized Image 2.2">  
-          <img src="assets/images/booth_darkgreen.png" alt="Colorized Image 2.2">  
-          <img src="assets/images/booth_dark.png" alt="Colorized Image 2.2">  
-          <img src="assets/images/booth_blue.png" alt="Colorized Image 2.2">  
-        </div>  
-        <div class="caption-container">  
-          <p class="image-caption">A <b>[*]</b> booth with <b>[*]</b> sky</p>  
-        </div>  
-      </div>  
-      <div class="slide slide3">  
-        <div class="image-pair2">  
-          <img src="assets/images/cabin_gray.jpg" alt="Grayscale Image 2">  
-          <img src="assets/images/cabin_blue.png" alt="Colorized Image 2.2">  
-          <img src="assets/images/cabin_brown.png" alt="Colorized Image 2.2">  
-          <img src="assets/images/cabin_red.png" alt="Colorized Image 2.2">  
-          <img src="assets/images/cabin_green.png" alt="Colorized Image 2.2">  
-        </div>  
-        <div class="caption-container">  
-          <p class="image-caption">A <b>[*]</b> cabin under the sky</p>  
-        </div>  
-      </div>  
+  <div class="container">  
+    <div class="column">  
+      <img src="assets/images/teddy_gray.jpg" alt="Grayscale Image">  
     </div>  
-    <button id="prev4" class="slider-button slider-button-left">&#10094;</button>  
-    <button id="next4" class="slider-button slider-button-right">&#10095;</button>  
-  </div>
+    <div class="arrow">  
+      &rarr;  
+    </div>  
+    <div class="column" style="position: relative;">  
+      <div class="slider" id="slider5">  
+        <!-- 在这里添加9张不同的上色结果图片，每张图片都包含在一个 slide 容器内 -->  
+        <div class="slide slide3">  
+          <img src="assets/images/teddy_yellow.png" alt="Colorized Image 1">  
+          <div class="caption-container">  
+            <p class="image-caption">A <span style="color: rgb(208, 208, 27);">yellow</span> teddy bear doll</p>  
+          </div> 
+        </div>  
+        <div class="slide slide3">  
+          <img src="assets/images/teddy_red.png" alt="Colorized Image 1">  
+          <div class="caption-container">  
+            <p class="image-caption">A <span style="color: red;">red</span> teddy bear doll</p>  
+          </div> 
+        </div>  
+        <div class="slide slide3">  
+          <img src="assets/images/teddy_brown.png" alt="Colorized Image 1">  
+          <div class="caption-container">  
+            <p class="image-caption">A <span style="color: brown;">brown</span> teddy bear doll</p>  
+          </div> 
+        </div>  
+        <div class="slide slide3">  
+          <img src="assets/images/teddy_green.png" alt="Colorized Image 1">  
+        <div class="caption-container">  
+          <p class="image-caption">A <span style="color: green;">green</span> teddy bear doll</p>  
+        </div> 
+        </div>  
+      </div>  
+      <button id="prev5" class="slider-button slider-button-left">&#10094;</button>  
+      <button id="next5" class="slider-button slider-button-right">&#10095;</button>  
+    </div>  
+  </div>  
 
+  <div class="container">  
+    <div class="column">  
+      <img src="assets/images/bus_gray.jpg" alt="Grayscale Image">  
+    </div>  
+    <div class="arrow">  
+      &rarr;  
+    </div>  
+    <div class="column" style="position: relative;">  
+      <div class="slider" id="slider6">  
+        <!-- 在这里添加9张不同的上色结果图片，每张图片都包含在一个 slide 容器内 -->  
+        <div class="slide slide3">  
+          <img src="assets/images/bus_red.png" alt="Colorized Image 1">  
+          <div class="caption-container">  
+            <p class="image-caption">A <span style="color: red;">red</span> bus on the road</p>  
+          </div> 
+        </div>  
+        <div class="slide slide3">  
+          <img src="assets/images/bus_green.png" alt="Colorized Image 1">  
+          <div class="caption-container">  
+            <p class="image-caption">A <span style="color: green;">green</span> bus on the road</p>  
+          </div> 
+        </div>  
+        <div class="slide slide3">  
+          <img src="assets/images/bus_purple.png" alt="Colorized Image 1">  
+          <div class="caption-container">  
+            <p class="image-caption">A <span style="color: purple;">purple</span> bus on the road</p>  
+          </div> 
+        </div>  
+        <div class="slide slide3">  
+          <img src="assets/images/bus_brown.png" alt="Colorized Image 1">  
+        <div class="caption-container">  
+          <p class="image-caption">A <span style="color: brown;">brown</span> bus on the road</p>  
+        </div> 
+        </div>  
+      </div>  
+      <button id="prev6" class="slider-button slider-button-left">&#10094;</button>  
+      <button id="next6" class="slider-button slider-button-right">&#10095;</button>  
+    </div>  
+  </div>  
+
+  <div class="container">  
+    <div class="column">  
+      <img src="assets/images/booth_gray.jpg" alt="Grayscale Image">  
+    </div>  
+    <div class="arrow">  
+      &rarr;  
+    </div>  
+    <div class="column" style="position: relative;">  
+      <div class="slider" id="slider7">  
+        <!-- 在这里添加9张不同的上色结果图片，每张图片都包含在一个 slide 容器内 -->  
+        <div class="slide slide3">  
+          <img src="assets/images/booth_pink.png" alt="Colorized Image 1">  
+          <div class="caption-container">  
+            <p class="image-caption">A <span style="color: pink;">pink</span> booth with sky</p>  
+          </div> 
+        </div>  
+        <div class="slide slide3">  
+          <img src="assets/images/booth_darkgreen.png" alt="Colorized Image 1">  
+          <div class="caption-container">  
+            <p class="image-caption">A <span style="color: green;">green</span> booth with sky</p>  
+          </div> 
+        </div>  
+        <div class="slide slide3">  
+          <img src="assets/images/booth_dark.png" alt="Colorized Image 1">  
+          <div class="caption-container">  
+            <p class="image-caption">A <span style="color: black;">black</span> booth with sky</p>  
+          </div> 
+        </div>  
+        <div class="slide slide3">  
+          <img src="assets/images/booth_blue.png" alt="Colorized Image 1">  
+        <div class="caption-container">  
+          <p class="image-caption">A <span style="color: blue;">blue</span> booth with <span style="color: red;">red</span> sky</p>  
+        </div> 
+        </div>  
+      </div>  
+      <button id="prev7" class="slider-button slider-button-left">&#10094;</button>  
+      <button id="next7" class="slider-button slider-button-right">&#10095;</button>  
+    </div>  
+  </div>  
+
+  <div class="container">  
+    <div class="column">  
+      <img src="assets/images/cabin_gray.jpg" alt="Grayscale Image">  
+    </div>  
+    <div class="arrow">  
+      &rarr;  
+    </div>  
+    <div class="column" style="position: relative;">  
+      <div class="slider" id="slider8">  
+        <!-- 在这里添加9张不同的上色结果图片，每张图片都包含在一个 slide 容器内 -->  
+        <div class="slide slide3">  
+          <img src="assets/images/cabin_blue.png" alt="Colorized Image 1">  
+          <div class="caption-container">  
+            <p class="image-caption">A <span style="color: blue;">blue</span> cabin</p>  
+          </div> 
+        </div>  
+        <div class="slide slide3">  
+          <img src="assets/images/cabin_brown.png" alt="Colorized Image 1">  
+          <div class="caption-container">  
+            <p class="image-caption">A <span style="color: brown;">brown</span> cabin</p>  
+          </div> 
+        </div>  
+        <div class="slide slide3">  
+          <img src="assets/images/cabin_red.png" alt="Colorized Image 1">  
+          <div class="caption-container">  
+            <p class="image-caption">A <span style="color: red;">red</span> cabin</p>  
+          </div> 
+        </div>  
+        <div class="slide slide3">  
+          <img src="assets/images/cabin_green.png" alt="Colorized Image 1">  
+        <div class="caption-container">  
+          <p class="image-caption">A <span style="color: green;">green</span> cabin</p>  
+        </div> 
+        </div>  
+      </div>  
+      <button id="prev8" class="slider-button slider-button-left">&#10094;</button>  
+      <button id="next8" class="slider-button slider-button-right">&#10095;</button>  
+    </div>  
+  </div>  
 
   <h2>More Results</h2>  
     <div class="container">  
@@ -420,6 +543,138 @@
       slides[i].style.display = "block";  
     }  
   }  
+
+  //
+  const slider5 = document.getElementById("slider5");  
+  const slides5 = slider5.getElementsByClassName("slide");  
+  let currentSlide5 = 0;  
+  
+  // 显示前 3 张图片  
+  for (let i = 0; i < 1; i++) {  
+    slides5[i].style.display = "block";  
+  }  
+  
+  // 绑定翻页按钮事件  
+  document.getElementById("prev5").onclick = function () {  
+    shiftSlides5(-1);  
+  };  
+  document.getElementById("next5").onclick = function () {  
+    shiftSlides5(1);  
+  };  
+  
+  function shiftSlides5(direction) {  
+    const totalSlides = slides5.length;  
+    const slidesToShow = 1;  
+    
+    // 隐藏当前显示的图片和caption  
+    slides5[currentSlide5].style.display = "none";  
+    
+    // 更新 currentSlide  
+    currentSlide5 += direction;  
+    currentSlide5 = Math.max(0, Math.min(currentSlide5, totalSlides - slidesToShow));  
+    
+    // 显示新的图片和caption  
+    slides5[currentSlide5].style.display = "block";  
+  }  
+  
+    //
+    const slider6 = document.getElementById("slider6");  
+    const slides6 = slider6.getElementsByClassName("slide");  
+    let currentSlide6 = 0;  
+    
+    // 显示前 3 张图片  
+    for (let i = 0; i < 1; i++) {  
+      slides6[i].style.display = "block";  
+    }  
+    
+    // 绑定翻页按钮事件  
+    document.getElementById("prev6").onclick = function () {  
+      shiftSlides6(-1);  
+    };  
+    document.getElementById("next6").onclick = function () {  
+      shiftSlides6(1);  
+    };  
+    
+    function shiftSlides6(direction) {  
+      const totalSlides = slides6.length;  
+      const slidesToShow = 1;  
+      
+      // 隐藏当前显示的图片和caption  
+      slides6[currentSlide6].style.display = "none";  
+      
+      // 更新 currentSlide  
+      currentSlide6 += direction;  
+      currentSlide6 = Math.max(0, Math.min(currentSlide6, totalSlides - slidesToShow));  
+      
+      // 显示新的图片和caption  
+      slides6[currentSlide6].style.display = "block";  
+    }  
+
+      //
+  const slider7 = document.getElementById("slider7");  
+  const slides7 = slider7.getElementsByClassName("slide");  
+  let currentSlide7 = 0;  
+  
+  // 显示前 3 张图片  
+  for (let i = 0; i < 1; i++) {  
+    slides7[i].style.display = "block";  
+  }  
+  
+  // 绑定翻页按钮事件  
+  document.getElementById("prev7").onclick = function () {  
+    shiftSlides7(-1);  
+  };  
+  document.getElementById("next7").onclick = function () {  
+    shiftSlides7(1);  
+  };  
+  
+  function shiftSlides7(direction) {  
+    const totalSlides = slides7.length;  
+    const slidesToShow = 1;  
+    
+    // 隐藏当前显示的图片和caption  
+    slides7[currentSlide7].style.display = "none";  
+    
+    // 更新 currentSlide  
+    currentSlide7 += direction;  
+    currentSlide7 = Math.max(0, Math.min(currentSlide7, totalSlides - slidesToShow));  
+    
+    // 显示新的图片和caption  
+    slides7[currentSlide7].style.display = "block";  
+  }  
+
+    //
+    const slider8 = document.getElementById("slider8");  
+    const slides8 = slider8.getElementsByClassName("slide");  
+    let currentSlide8 = 0;  
+    
+    // 显示前 3 张图片  
+    for (let i = 0; i < 1; i++) {  
+      slides8[i].style.display = "block";  
+    }  
+    
+    // 绑定翻页按钮事件  
+    document.getElementById("prev8").onclick = function () {  
+      shiftSlides8(-1);  
+    };  
+    document.getElementById("next8").onclick = function () {  
+      shiftSlides8(1);  
+    };  
+    
+    function shiftSlides8(direction) {  
+      const totalSlides = slides8.length;  
+      const slidesToShow = 1;  
+      
+      // 隐藏当前显示的图片和caption  
+      slides8[currentSlide8].style.display = "none";  
+      
+      // 更新 currentSlide  
+      currentSlide8 += direction;  
+      currentSlide8 = Math.max(0, Math.min(currentSlide8, totalSlides - slidesToShow));  
+      
+      // 显示新的图片和caption  
+      slides8[currentSlide8].style.display = "block";  
+    }  
 
     
     // 新的滑动窗口代码  
