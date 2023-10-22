@@ -1,14 +1,14 @@
 <!-- ---  
 layout: page  
-title: "DiffColor"  
+title: "EMoG"  
 ---  
 
 
-**DiffColor:** Toward High Fidelity Text-Guided Image Colorization with Diffusion Models  
+**EMoG:** Synthesizing Emotive Co-speech 3D Gesture with Diffusion Model
 
-**Authors:** Jianxin Lin, Peng Xiao, Yijun Wang, Rongju Zhang, Xiangxiang Zeng  
+**Authors:** Lianying Yin, Yijun Wang, Tianyu He, Jinming Liu, Wei Zhao, Bohan Li, Xin Jin, Jianxin Lin 
 
-**Abstract:** Recent data-driven image colorization methods have enabled automatic or reference-based colorization, while still suffering from unsatisfactory and inaccurate object-level color control. To address these issues, we propose a new method called DiffColor that leverages the power of pre-trained diffusion models to recover vivid colors conditioned on a prompt text, without any additional inputs. DiffColor mainly contains two stages: colorization with generative color prior and in-context controllable colorization. Specifically, we first fine-tune a pre-trained text-to-image model to generate colorized images using a CLIP-based contrastive loss. Then we try to obtain an optimized text embedding aligning the colorized image and the text prompt, and a fine-tuned diffusion model enabling high-quality image reconstruction. Our method can produce vivid and diverse colors with a few iterations, and keep the structure and background intact while having colors well-aligned with the target language guidance. Moreover, our method allows for in-context colorization, i.e., producing different colorization results by modifying prompt texts without any fine-tuning, and can achieve object-level controllable colorization results. Extensive experiments and user studies demonstrate that DiffColor outperforms previous works in terms of visual quality, color fidelity, and diversity of colorization options.  
+**Abstract:** Co-speech 3D human gesture synthesis is a technique employed for generating realistic 3D animations of human motion, using audio signals as input. However, generating highly vivid motion remains a challenge due to the one-to-many nature between the speech content and gestures. This intricate association often leads to the oversight of certain gesture properties, notably the delicate differences of gesture emotion. Moreover, the complexity inherent in audio-driven 3D human gesture synthesis is compounded by the interaction of joint correlation and the temporal variation intrinsic to human gesture, often causing plain gesture generation. In this paper, we present a novel framework, dubbed EMotive Gesture generation (EMoG), to tackle the above challenges with denoising diffusion models: 1) To alleviate the one-to-many problem, we incorporate emotional representations extracted from audio into the distribution modeling process of the diffusion model, explicitly increasing the generation diversity; 2) To enable the emotive gesture generation,  we propose to decompose the difficult gesture generation into two sub-problems: joint correlation modeling and temporal dynamics modeling. Then, the two sub-problems are explicitly tackled with our proposed Temporal-dynamics and Joint-correlation aware Transformer (TJFormer). Through extensive evaluations, we demonstrate that our proposed method surpasses previous state-of-the-art approaches, offering substantial advantages in gesture synthesis. Furthermore, our approach exhibits the additional capabilities of enabling emotion transfer and affording fine-grained style control over specific body parts. This remarkable advancement paves the way for expressive gesture generation with heightened fidelity, opening up new possibilities for immersive experiences in the realm of 3D human gesture synthesis.
 
 **<center>Method</center>**
 
